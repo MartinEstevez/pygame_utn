@@ -105,3 +105,6 @@ while corriendo:
     pygame.display.flip()
 
 pygame.quit()
+
+
+"asdawdwadcsad"
