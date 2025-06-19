@@ -84,6 +84,17 @@ while corriendo:
             rect_boton = pygame.Rect(x, y, ancho_boton, alto_boton)
             dibujar_boton(pantalla, rect_boton, botones_menu[i], COLOR_FONDO_BOTON, COLOR_TEXTO)
 
+            # Nombres de los desarrolladores
+            desarollador_1 = fuente_boton.render("Martín Estevez", True, COLOR_TEXTO)
+            desarollador_2 = fuente_boton.render("Nicolas Rial Dell Anna", True, COLOR_TEXTO)
+            desarollador_3 = fuente_boton.render("Tomas Gil", True, COLOR_TEXTO)
+            desarollador_4= fuente_boton.render("Araceli Carrera", True, COLOR_TEXTO)
+
+            pantalla.blit(desarollador_1, (10, ALTO_PANTALLA - 90))
+            pantalla.blit(desarollador_2, (10, ALTO_PANTALLA - 70))
+            pantalla.blit(desarollador_3, (10, ALTO_PANTALLA - 50))
+            pantalla.blit(desarollador_4, (10, ALTO_PANTALLA - 30))
+
     # PANTALLA DE JUEGO
     elif pantalla_actual == "EN_JUEGO":
         fondo_juego = pygame.image.load(RUTA_IMAGEN_FONDO_JUEGO)
