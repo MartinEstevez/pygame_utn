@@ -35,7 +35,7 @@ def dibujar_boton(pantalla, rect_boton, texto, color_fondo, color_texto):
 
 # MENU PRINCIPAL
 pantalla_actual = "MENU"
-botones_menu = ["NUEVA PARTIDA", "OPCIONES", "SALIR"]
+botones_menu = ["JUGAR", "PUNTAJES", "SALIR"]
 ancho_boton = 300
 alto_boton = 50
 espacio_entre_botones = 20
@@ -49,17 +49,17 @@ while corriendo:
             corriendo = False
 
         if evento.type == pygame.MOUSEBUTTONDOWN and evento.button == 1: # DETECTA EL CLIC
-            mouse_pos = pygame.mouse.get_pos()
+            mouse_pos = pygame.mouse.get_pos() # GUARDA LA POSICIÓN DEL MOUSE AL HACER CLIC
             if pantalla_actual == "MENU":
                 for i in range(len(botones_menu)):
                     x = (ANCHO_PANTALLA - ancho_boton) / 2
                     y = y_botones + i * (alto_boton + espacio_entre_botones)
                     rect_boton = pygame.Rect(x, y, ancho_boton, alto_boton)
 
-                    if rect_boton.collidepoint(mouse_pos):
+                    if rect_boton.collidepoint(mouse_pos): # sI SE HIZO CLIC DENTRO DEL BOTON...
                         if botones_menu[i] == "SALIR":
                             corriendo = False # CIERRA EL JUEGO AL HACER CLIC EN EL BOTON SALIR
-                        elif botones_menu[i] == "NUEVA PARTIDA":
+                        elif botones_menu[i] == "JUGAR":
                             pantalla_actual = "EN_JUEGO" # PANTALLA DE JUEGO
                         else:
                             print("PROBLEMAS TECNICOS, FALTA CODEAR!!")
@@ -90,6 +90,6 @@ while corriendo:
         fondo_juego = pygame.transform.scale(fondo_juego, (ANCHO_PANTALLA, ALTO_PANTALLA))
         pantalla.blit(fondo_juego, (0, 0))
 
-    pygame.display.update()
+    pygame.display.flip()
 
 pygame.quit()
